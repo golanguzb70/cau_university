@@ -1,0 +1,206 @@
+./problem3.cpp
+#include <iostream>
+
+using namespace std;
+
+// Base class
+class Base {
+public:
+    // Virtual function for display
+    virtual void display() const {
+        cout << "Base class display()\n";
+    }
+};
+
+// Derived class Derived1
+class Derived1 : public Base {
+public:
+    // Override display() for Derived1
+    void display() const override {
+        cout << "Derived1 class display()\n";
+    }
+};
+
+// Derived class Derived2
+class Derived2 : public Base {
+public:
+    // Override display() for Derived2
+    void display() const override {
+        cout << "Derived2 class display()\n";
+    }
+};
+
+int main() {
+    // Create objects of each class
+    Base baseObj;
+    Derived1 derived1Obj;
+    Derived2 derived2Obj;
+
+    // Demonstrate function overriding by calling display() on each object
+    cout << "Base Object Display: ";
+    baseObj.display();
+
+    cout << "Derived1 Object Display: ";
+    derived1Obj.display();
+
+    cout << "Derived2 Object Display: ";
+    derived2Obj.display();
+
+    return 0;
+}
+
+
+./problem1.cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+class Person
+{
+private:
+    string name;
+    int age;
+    float height;
+public:
+    Person(string name, int age, float height):name(name),age(age),height(height) {}
+    ~Person() {
+        cout << name << " is destructed!\n";
+    };
+
+    void setName(string name) { name = name; }
+    void setAge(int age) { age=age; }     
+    void setHeight(float height) { height=height;}
+    
+    string getName() { 
+        return name;
+    }
+    int getAge() {
+        return age;
+    }
+    float getHeight() {
+        return height;
+    }
+
+    float calculateBMI(int weight) {
+        return weight / (height * height);
+    }
+};
+
+
+
+int main() {
+
+    return 0;
+}
+
+./problem2.cpp
+#include <iostream>
+
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    // Virtual method for making sound
+    virtual void makeSound() const {
+        cout << "Some generic animal sound\n";
+    }
+};
+
+// Derived class Dog
+class Dog : public Animal {
+public:
+    // Override makeSound() for Dog
+    void makeSound() const override {
+        cout << "Woof! Woof!\n";
+    }
+};
+
+// Derived class Cat
+class Cat : public Animal {
+public:
+    // Override makeSound() for Cat
+    void makeSound() const override {
+        cout << "Meow! Meow!\n";
+    }
+};
+
+int main() {
+    // Create objects of each class
+    Animal genericAnimal;
+    Dog myDog;
+    Cat myCat;
+
+    // Demonstrate hierarchical inheritance by calling makeSound() on each object
+    cout << "Generic Animal Sound: ";
+    genericAnimal.makeSound();
+
+    cout << "Dog Sound: ";
+    myDog.makeSound();
+
+    cout << "Cat Sound: ";
+    myCat.makeSound();
+
+    return 0;
+}
+
+
+./problem4.cpp
+#include <iostream>
+
+using namespace std;
+
+// Base class
+class Shape {
+public:
+    // Virtual function for drawing
+    virtual void draw() const {
+        cout << "Drawing a generic shape\n";
+    }
+};
+
+// Derived class Circle
+class Circle : public Shape {
+public:
+    // Override draw() for Circle
+    void draw() const override {
+        cout << "Drawing a circle\n";
+    }
+};
+
+// Derived class Square
+class Square : public Shape {
+public:
+    // Override draw() for Square
+    void draw() const override {
+        cout << "Drawing a square\n";
+    }
+};
+
+int main() {
+    // Create an array of Shape pointers
+    const int arraySize = 3;
+    Shape* shapes[arraySize];
+
+    // Assign objects of different shapes to the array
+    shapes[0] = new Shape();
+    shapes[1] = new Circle();
+    shapes[2] = new Square();
+
+    // Demonstrate the use of virtual functions and pointers
+    for (int i = 0; i < arraySize; ++i) {
+        cout << "Calling draw() for shape " << i + 1 << ": ";
+        shapes[i]->draw();
+    }
+
+    // Clean up: delete dynamically allocated objects
+    for (int i = 0; i < arraySize; ++i) {
+        delete shapes[i];
+    }
+
+    return 0;
+}
+
+

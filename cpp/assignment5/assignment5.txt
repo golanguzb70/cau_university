@@ -1,0 +1,199 @@
+// problem_5.cpp
+
+#include <iostream>
+#include <cstring> // For strlen
+
+char* reverseString(const char* input) {
+    // Determine the length of the input string
+    size_t length = strlen(input);
+
+    // Dynamically allocate memory for the reversed string
+    char* reversed = new char[length + 1]; // +1 for the null-terminator
+
+    // Use pointers to reverse the string
+    const char* inputPtr = input + length - 1;
+    char* reversedPtr = reversed;
+
+    while (length > 0) {
+        *reversedPtr++ = *inputPtr--;
+        --length;
+    }
+
+    // Null-terminate the reversed string
+    *reversedPtr = '\0';
+
+    return reversed;
+}
+
+int main() {
+    // User input for a string
+    std::cout << "Enter a string: ";
+    
+    // Read a string with spaces
+    std::string userInput;
+    std::getline(std::cin, userInput);
+
+    // Convert string to C-style string for dynamic allocation
+    const char* originalString = userInput.c_str();
+
+    // Reverse the string using pointers
+    char* reversedString = reverseString(originalString);
+
+    // Print the original and reversed strings
+    std::cout << "Original String: " << originalString << std::endl;
+    std::cout << "Reversed String: " << reversedString << std::endl;
+
+    // Deallocate the dynamically allocated memory
+    delete[] reversedString;
+
+    return 0;
+}
+
+
+//problem_4.cpp
+#include <iostream>
+
+// Function prototype for addition
+int add(int a, int b);
+
+// Function prototype for multiplication
+int multiply(int a, int b);
+
+int main() {
+    // Function pointer declaration
+    int (*operation)(int, int);
+
+    // User input for selecting the operation
+    std::cout << "Choose operation:\n";
+    std::cout << "1. Addition\n";
+    std::cout << "2. Multiplication\n";
+    int choice;
+    std::cin >> choice;
+
+    // Set the function pointer based on user choice
+    if (choice == 1) {
+        operation = add;
+    } else if (choice == 2) {
+        operation = multiply;
+    } else {
+        std::cerr << "Invalid choice. Exiting.\n";
+        return 1;
+    }
+
+    // User input for two integers
+    int num1, num2;
+    std::cout << "Enter two integers: ";
+    std::cin >> num1 >> num2;
+
+    // Perform the selected operation using the function pointer
+    int result = operation(num1, num2);
+
+    // Display the result
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
+
+// Function definition for addition
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function definition for multiplication
+int multiply(int a, int b) {
+    return a * b;
+}
+
+
+//problem_3.cpp
+#include <iostream>
+#include <cstring> // For strlen
+
+char* concatenateStrings(const char* str1, const char* str2) {
+    // Determine the lengths of the input strings
+    size_t len1 = strlen(str1);
+    size_t len2 = strlen(str2);
+
+    // Dynamically allocate memory for the concatenated string
+    char* result = new char[len1 + len2 + 1]; // +1 for the null-terminator
+
+    // Copy the first string into the result
+    strcpy(result, str1);
+
+    // Concatenate the second string to the result
+    strcat(result, str2);
+
+    return result;
+}
+
+int main() {
+    // Example usage
+    const char* str1 = "Hello, ";
+    const char* str2 = "world!";
+
+    // Call the function to concatenate strings
+    char* concatenatedString = concatenateStrings(str1, str2);
+
+    // Print the concatenated string
+    std::cout << "Concatenated String: " << concatenatedString << std::endl;
+
+    // Free the dynamically allocated memory
+    delete[] concatenatedString;
+
+    return 0;
+}
+
+
+//problem_1.cpp
+#include <iostream>
+
+
+using namespace std;
+
+void swap(int* a, int* b) {
+    int temp = *a;
+
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int a, b;
+    int *aP = &a, *bP = &b;
+    
+    cin >> *aP >> *bP;
+
+    swap(aP, bP);
+
+    cout << *aP << " " <<  *bP << endl;
+
+    return 0;
+}
+
+//problem_2.cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+
+    int* dynamicArray = new int[size];
+
+    for (int i = 0; i < size; ++i) {
+        dynamicArray[i] = i * 10; 
+    }
+
+    cout << "Array elements: ";
+    for (int i = 0; i < size; ++i) {
+        cout << *(dynamicArray + i) << " ";
+    }
+    cout << endl;
+
+    delete[] dynamicArray;
+
+    return 0;
+}
+
