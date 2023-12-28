@@ -1,0 +1,24 @@
+The SOLID principles are a set of design principles that promote the creation of flexible, maintainable, and scalable software. These principles were introduced by Robert C. Martin and are widely used in object-oriented programming. The SOLID acronym stands for:
+
+1. Single Responsibility Principle (SRP):
+   - A class should have only one reason to change, meaning it should have only one responsibility.
+   - Each class or module should focus on doing one thing and doing it well, promoting maintainability and minimizing the impact of changes.
+
+2. Open/Closed Principle (OCP):
+   - Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
+   - New functionality should be added through the creation of new code rather than altering existing code, allowing for easier updates and extensions without affecting existing, working code.
+
+3. Liskov Substitution Principle (LSP):
+   - Subtypes (derived or child classes) must be substitutable for their base types without affecting the correctness of the program.
+   - Objects of a base class should be replaceable with objects of a derived class without affecting the correctness of the program.
+
+4. Interface Segregation Principle (ISP):
+   - Clients should not be forced to depend on interfaces they do not use.
+   - Instead of having large, monolithic interfaces, it is better to have smaller, more specific interfaces, tailored to the needs of the clients.
+
+5. Dependency Inversion Principle (DIP):
+   - High-level modules (e.g., business logic) should not depend on low-level modules (e.g., data access), but both should depend on abstractions (e.g., interfaces).
+   - Abstractions should not depend on details; details should depend on abstractions.
+   - This principle promotes decoupling, flexibility, and the ease of substituting components without affecting the overall system.
+
+By adhering to the SOLID principles, developers aim to create code that is more modular, maintainable, and adaptable to change, fostering better software design practices.
