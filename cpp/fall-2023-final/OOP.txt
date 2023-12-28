@@ -1,0 +1,12 @@
+Encapsulation - The Art of Secrecy
+Like a treasure chest, encapsulation allows us to hide away the precious details within our objects, exposing only what is necessary to the outside world through a well-defined interface.
+
+Inheritance - The Legacy Continues
+Inheritance is the bridge that connects the past to the present. It allows new objects to be crafted based on the blueprints of existing ones, inheriting traits and skills, much like a child inherits characteristics from their parents.
+
+Polymorphism - Many Forms, One Interface
+Polymorphism gives us the power to interact with different objects through a common interface, like a shape-shifter adapting to its surroundings. This is the magic of OOP, enabling us to write flexible and dynamic code.
+
+Abstraction - Simplifying Complexity
+Abstraction is the art of simplifying complexity by modeling classes appropriate to the problem, providing a clear separation between what something does and how it's accomplished.
+
